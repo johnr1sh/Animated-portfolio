@@ -1,0 +1,189 @@
+.careerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  padding: 80px 20px 100px;
+  box-sizing: border-box;
+}
+.careerSection h2 {
+  font-size: 42px;
+  line-height: 1.05;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, #7f40ff, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin: 0 0 60px;
+}
+.careerSection h2 > span {
+  font-weight: 300;
+}
+.careerInfo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 720px;
+}
+.careerInfoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+  opacity: 0;
+  padding-left: 32px;
+  position: relative;
+}
+.careerInfoBox::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 18px;
+  height: 1px;
+  background: var(--accentColorSoft);
+}
+.careerInfoBox p {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+  color: var(--mutedInk);
+  line-height: 1.6;
+}
+.careerInfoIn {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.careerInfo h3 {
+  font-size: 28px;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--accentColor);
+  letter-spacing: 1px;
+}
+.careerInfo h4 {
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin: 0;
+}
+.careerInfo h5 {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 6px 0 0;
+  color: var(--accentColor);
+  opacity: 0.8;
+}
+.careerTimeline {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    #aa42ff 20%,
+    var(--accentColor) 50%,
+    transparent 95%
+  );
+  max-height: 10%;
+  opacity: 0;
+}
+.careerDot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: #aa42ff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  box-shadow:
+    0px 0px 5px 2px #d29bff,
+    0px 0px 15px 8px #d097ff,
+    0px 0px 110px 20px #f2c0ff;
+  animation: timeline 0.8s linear infinite forwards;
+}
+@keyframes timeline {
+  10%, 20%, 50%, 70%, 90% {
+    box-shadow: 0px 0px 5px 2px #d29bff;
+  }
+  10%, 30%, 0%, 100%, 64%, 80% {
+    box-shadow:
+      0px 0px 5px 2px #d29bff,
+      0px 0px 15px 5px #d097ff,
+      0px 0px 110px 20px #f2c0ff;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .careerSection { padding: 100px 40px 120px; }
+  .careerSection h2 { font-size: 52px; margin-bottom: 80px; }
+  .careerInfoBox p { font-size: 15px; }
+  .careerInfo h3 { font-size: 32px; }
+  .careerInfo h4 { font-size: 22px; }
+  .careerInfo h5 { font-size: 13px; }
+}
+
+@media only screen and (min-width: 1025px) {
+  .careerSection {
+    padding: 140px 40px 160px;
+  }
+  .careerSection h2 {
+    font-size: 70px;
+    line-height: 70px;
+    margin-top: 40px;
+    margin-bottom: 100px;
+  }
+  .careerInfo {
+    max-width: 1100px;
+  }
+  .careerInfoBox {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding-left: 0;
+    margin-bottom: 60px;
+  }
+  .careerInfoBox::before { display: none; }
+  .careerInfoBox p {
+    width: 40%;
+    font-size: 16px;
+  }
+  .careerInfoIn {
+    width: 40%;
+    gap: 50px;
+  }
+  .careerInfo h3 { font-size: 48px; line-height: 45px; }
+  .careerInfo h4 { font-size: 26px; line-height: 28px; }
+  .careerInfo h5 { font-size: 16px; margin: 10px 0; }
+  .careerTimeline {
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .careerTimeline { left: 0; }
+}
+
+@media only screen and (min-width: 1400px) {
+  .careerSection h2 { font-size: 80px; line-height: 80px; }
+  .careerInfo h3 { font-size: 56px; }
+  .careerInfo h4 { font-size: 30px; }
+}

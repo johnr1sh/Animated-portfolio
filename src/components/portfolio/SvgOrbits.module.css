@@ -1,0 +1,109 @@
+.wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  perspective: 900px;
+}
+
+/* Orbit rings — perspective-tilted circles that spin continuously */
+.orbit {
+  position: absolute;
+  transform-style: preserve-3d;
+  opacity: 0.55;
+}
+.orbitA {
+  top: 8%;
+  left: 4%;
+  width: 340px;
+  height: 340px;
+  transform: rotateX(62deg) rotateZ(0deg);
+  animation: spinA 26s linear infinite;
+}
+.orbitB {
+  bottom: 6%;
+  right: 3%;
+  width: 420px;
+  height: 420px;
+  transform: rotateX(58deg) rotateZ(0deg);
+  animation: spinB 34s linear infinite;
+}
+.orbitC {
+  top: 40%;
+  right: 12%;
+  width: 220px;
+  height: 220px;
+  transform: rotateX(66deg) rotateZ(0deg);
+  animation: spinA 20s linear infinite reverse;
+}
+.orbitD {
+  bottom: 30%;
+  left: 8%;
+  width: 180px;
+  height: 180px;
+  transform: rotateX(70deg) rotateZ(0deg);
+  animation: spinB 24s linear infinite reverse;
+  opacity: 0.35;
+}
+@keyframes spinA {
+  from { transform: rotateX(62deg) rotateZ(0deg); }
+  to   { transform: rotateX(62deg) rotateZ(360deg); }
+}
+@keyframes spinB {
+  from { transform: rotateX(58deg) rotateZ(0deg); }
+  to   { transform: rotateX(58deg) rotateZ(-360deg); }
+}
+
+/* Circuit paths */
+.circuitSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+.circuitLine {
+  fill: none;
+  stroke: rgba(194, 164, 255, 0.4);
+  stroke-width: 1.2;
+}
+.node {
+  fill: rgba(194, 164, 255, 0.7);
+}
+.nodePulse {
+  animation: nodePulse 3.2s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+.pulseDot {
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.particle {
+  animation: drift 12s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+@keyframes drift {
+  0%, 100% { opacity: 0.2; transform: translate(0, 0); }
+  25% { opacity: 0.9; transform: translate(8px, -10px); }
+  50% { opacity: 0.4; transform: translate(-6px, -4px); }
+  75% { opacity: 0.8; transform: translate(4px, 6px); }
+}
+
+@media (max-width: 768px) {
+  .orbitB, .orbitC, .orbitD { display: none; }
+  .orbitA { width: 200px; height: 200px; opacity: 0.35; top: 12%; left: 0%; }
+  .circuitSvg { opacity: 0.22; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbitA, .orbitB, .orbitC, .orbitD { animation: none; }
+  .particle, .nodePulse { animation: none; }
+}

@@ -1,0 +1,104 @@
+.contactSection {
+  margin: 0 auto;
+  padding: 80px 20px 80px;
+  box-sizing: border-box;
+}
+.contactSection h3 {
+  font-size: 40px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 0 0 40px;
+  letter-spacing: -0.5px;
+}
+.contactFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.contactFlex h4 {
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.6;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+.contactBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.contactFlex p {
+  margin: 0 0 18px;
+  font-size: 15px;
+  color: var(--inkColor);
+}
+.contactSocial {
+  font-size: 18px;
+  border-bottom: 1px solid #2a2630;
+  padding-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: 100%;
+  color: var(--inkColor);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.contactSocial:hover {
+  color: var(--accentColor);
+  border-color: var(--accentColor);
+}
+.contactBox h2 {
+  font-weight: 500;
+  font-size: 22px;
+  margin: 0;
+  line-height: 1.35;
+}
+.contactBox h2 > span {
+  color: var(--accentColor);
+}
+.contactBox h5 {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  opacity: 0.5;
+  margin-top: 24px;
+}
+
+@media only screen and (min-width: 500px) {
+  .contactSection { padding: 100px 40px 100px; }
+  .contactSection h3 { font-size: 50px; }
+  .contactSocial { font-size: 22px; }
+  .contactBox h2 { font-size: 26px; }
+  .contactFlex p { font-size: 16px; }
+}
+
+@media only screen and (min-width: 900px) {
+  .contactFlex {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 50px;
+  }
+  .contactBox {
+    flex: 1;
+    min-width: 200px;
+  }
+  /* The last contactBox (the headline) spans full width below */
+  .contactBox:last-child {
+    flex-basis: 100%;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .contactSection h3 { font-size: 60px; }
+  .contactSocial { font-size: 24px; }
+  .contactBox h2 { font-size: 30px; }
+  .contactFlex { gap: 60px; }
+}

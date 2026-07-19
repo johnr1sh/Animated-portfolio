@@ -1,0 +1,327 @@
+.whatIDO {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  z-index: 9;
+  padding: 80px 20px;
+  gap: 40px;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.whatHeader {
+  width: 100%;
+  text-align: left;
+}
+.whatHeader h2 {
+  font-size: clamp(48px, 12vw, 96px);
+  line-height: 0.95;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -1px;
+}
+.hatH2 { font-style: italic; }
+.doH2 { color: var(--accentColor); }
+
+.whatBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 9;
+}
+.whatBoxIn {
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+  display: flex;
+  gap: 12px;
+}
+
+/* Mobile: stacked accordion-style cards */
+.whatContent {
+  width: 100%;
+  transition: flex 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  padding: 22px 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--Border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: none;
+}
+.whatContentActive {
+  border-color: var(--accentColorSoft);
+  background: rgba(194, 164, 255, 0.04);
+}
+.whatContent h3 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 4px 0 12px;
+  font-weight: 600;
+}
+.whatContent p {
+  font-size: 13px;
+  line-height: 1.55;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  color: var(--mutedInk);
+}
+.whatContent h4 {
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  margin: 0;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--accentColor);
+  opacity: 0.7;
+}
+.whatContentIn {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Corner brackets */
+.whatContent::before,
+.whatContent::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-color: var(--accentColor);
+  border-style: solid;
+  border-width: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.whatContent::before {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+.whatContent::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+.whatContent:hover::before,
+.whatContent:hover::after,
+.whatContentActive::before,
+.whatContentActive::after {
+  opacity: 1;
+}
+
+.whatArrow {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+.whatArrow::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  border-left: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 8px;
+  height: 8px;
+}
+.whatContent:hover .whatArrow::before,
+.whatContentActive .whatArrow::before {
+  transform: translate(-50%, -20%) rotate(-225deg);
+}
+.whatContent:hover .whatArrow,
+.whatContentActive .whatArrow {
+  border-color: var(--accentColor);
+  color: var(--accentColor);
+}
+
+.whatBorder1 {
+  display: none;
+}
+.whatBorder2 {
+  display: none;
+}
+
+.whatContentIn h5 {
+  font-weight: 300;
+  opacity: 0.5;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+.whatContentFlex {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Mobile/tablet accordion: collapsed by default, opens on tap.
+   Grid-rows trick animates height without measuring in JS. */
+.whatCollapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.whatCollapse > div {
+  overflow: hidden;
+  min-height: 0;
+}
+.whatCollapse > div > h5 {
+  margin-top: 18px;
+}
+.whatContentActive .whatCollapse {
+  grid-template-rows: 1fr;
+}
+.whatTags {
+  font-size: 11px;
+  font-weight: 400;
+  padding: 4px 10px;
+  background-color: rgba(194, 164, 255, 0.08);
+  border: 1px solid rgba(194, 164, 255, 0.25);
+  border-radius: 30px;
+  color: var(--accentColor);
+  letter-spacing: 0.3px;
+}
+
+/* ===== Tablet ===== */
+@media only screen and (min-width: 768px) {
+  .whatIDO {
+    padding: 100px 40px;
+    gap: 60px;
+  }
+  .whatBoxIn { max-width: 700px; }
+  .whatContent {
+    padding: 28px 32px;
+  }
+  .whatContent h3 { font-size: 24px; }
+  .whatContent p { font-size: 14px; }
+}
+
+/* ===== Desktop: side-by-side expanding panels ===== */
+@media only screen and (min-width: 1025px) {
+  .whatIDO {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: var(--vh);
+    padding: 100px 40px;
+    gap: 60px;
+  }
+  .whatHeader {
+    width: 40%;
+    flex-shrink: 0;
+  }
+  .whatHeader h2 {
+    font-size: clamp(60px, 5.5vw, 110px);
+  }
+  .whatBox {
+    width: 60%;
+    align-items: stretch;
+  }
+  .whatBoxIn {
+    max-width: none;
+    height: 600px;
+    flex-direction: row;
+    gap: 0;
+  }
+  .whatContent {
+    width: auto;
+    flex: 1;
+    min-height: 0;
+    padding: 32px 28px;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+  }
+  .whatContent:hover,
+  .whatContentActive {
+    flex: 3;
+    padding: 36px 32px;
+    background: rgba(194, 164, 255, 0.03);
+  }
+  .whatContent:hover ~ .whatContent,
+  .whatBoxIn:hover .whatContent:not(:hover),
+  .whatSibling {
+    flex: 0.6;
+    padding: 18px 18px;
+  }
+  /* Restore decorative dashed borders on desktop */
+  .whatBorder1 { display: block; }
+  .whatBorder2 { display: block; }
+  .whatBorder1 {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .whatBorder1 svg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    top: 0;
+  }
+  .whatBorder2 {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .whatBorder2 svg {
+    height: 100%;
+    width: 2px;
+    position: absolute;
+  }
+  .whatContent h3 { font-size: 22px; }
+  .whatContent:hover h3,
+  .whatContentActive h3 { font-size: 26px; }
+  .whatContent h5,
+  .whatContentFlex {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .whatContent:hover h5,
+  .whatContentActive h5,
+  .whatContent:hover .whatContentFlex,
+  .whatContentActive .whatContentFlex {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .whatHeader { width: 38%; }
+  .whatBox { width: 62%; }
+  .whatBoxIn { height: 640px; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .whatContent { cursor: pointer; }
+}

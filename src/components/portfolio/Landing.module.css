@@ -1,0 +1,193 @@
+.landingSection {
+  width: 100%;
+  max-width: var(--cMaxWidth);
+  margin: 0 auto;
+  position: relative;
+  min-height: var(--vh);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  padding: 100px 0 60px;
+  box-sizing: border-box;
+}
+
+.landingContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+
+.landingIntro {
+  position: relative;
+  z-index: 9;
+}
+.landingIntro h2 {
+  color: var(--accentColor);
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.landingIntro h1 {
+  letter-spacing: 2px;
+  font-size: 32px;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+.landingInfo {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.landingInfo h3 {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  color: var(--accentColor);
+  margin-bottom: 4px;
+}
+.landingInfoH2 {
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.1;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  justify-content: center;
+  color: #c481ff;
+  height: 40px;
+  overflow: hidden;
+}
+.landingInfoH2 > div {
+  display: inline-block;
+}
+.landingDesc {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  color: var(--mutedInk);
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  line-height: 1.65;
+}
+.landingScroll {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accentColor);
+  text-transform: uppercase;
+}
+.landingScroll span {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(var(--accentColor), transparent);
+  animation: scrollLine 1.8s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%      { transform: scaleY(0); transform-origin: top; }
+  50%     { transform: scaleY(1); transform-origin: top; }
+  50.01%  { transform-origin: bottom; }
+  100%    { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ===== Mobile (small) ===== */
+@media screen and (min-width: 500px) {
+  .landingContainer { padding: 0 40px; }
+  .landingIntro h2 { font-size: 18px; }
+  .landingIntro h1 { font-size: 40px; }
+  .landingInfo h3 { font-size: 18px; }
+  .landingInfoH2 { font-size: 44px; height: 48px; }
+  .landingDesc { font-size: 15px; max-width: 420px; }
+}
+
+/* ===== Tablet ===== */
+@media screen and (min-width: 768px) {
+  .landingIntro h2 { font-size: 22px; }
+  .landingIntro h1 { font-size: 52px; }
+  .landingInfo h3 { font-size: 22px; }
+  .landingInfoH2 { font-size: 60px; height: 64px; }
+  .landingDesc { font-size: 16px; max-width: 480px; }
+}
+
+/* ===== Desktop: two-column ===== */
+@media screen and (min-width: 1025px) {
+  .landingContainer {
+    display: block;
+    text-align: left;
+    padding: 0;
+  }
+  .landingIntro {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    text-align: left;
+  }
+  .landingIntro h2 { font-size: 25px; }
+  .landingIntro h1 { font-size: 56px; line-height: 1; }
+  .landingInfo {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: left;
+    align-items: flex-start;
+  }
+  .landingInfo h3 { font-size: 25px; }
+  .landingInfoH2 {
+    font-size: 68px;
+    justify-content: flex-start;
+    height: 72px;
+  }
+  .landingDesc {
+    text-align: left;
+    max-width: 380px;
+    margin-top: 32px;
+  }
+  .landingScroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .landingIntro { left: 4%; }
+  .landingInfo { right: 4%; }
+}
+
+@media screen and (min-width: 1400px) {
+  .landingIntro h2 { font-size: 28px; }
+  .landingIntro h1 { font-size: 64px; }
+  .landingInfo h3 { font-size: 28px; }
+  .landingInfoH2 { font-size: 76px; height: 80px; }
+}
+
+@media screen and (min-width: 1600px) {
+  .landingIntro h2 { font-size: 32px; }
+  .landingIntro h1 { font-size: 72px; line-height: 0.95; }
+  .landingInfo h3 { font-size: 32px; }
+  .landingInfoH2 { font-size: 84px; height: 88px; }
+  .landingDesc { font-size: 17px; max-width: 420px; }
+}

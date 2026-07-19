@@ -1,0 +1,73 @@
+.techstack {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+.techstack h2 {
+  font-size: 44px;
+  text-align: center;
+  width: 100%;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  letter-spacing: -0.5px;
+}
+.toolsMarquee {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid #221c26;
+  border-bottom: 1px solid #221c26;
+  padding: 18px 0;
+}
+.toolsMarqueeAlt {
+  border-top: none;
+}
+.tmTrack {
+  display: inline-flex;
+  animation: tmScroll 30s linear infinite;
+}
+.tmTrackB {
+  animation: tmScrollAlt 30s linear infinite;
+}
+@keyframes tmScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+@keyframes tmScrollAlt {
+  from { transform: translateX(-33.333%); }
+  to   { transform: translateX(0); }
+}
+.toolsMarquee span {
+  padding: 0 22px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #5c5462;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.toolsMarquee span i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accentColor);
+  display: block;
+}
+
+@media screen and (min-width: 500px) {
+  .techstack h2 { font-size: 56px; }
+  .toolsMarquee span { font-size: 24px; padding: 0 28px; }
+  .toolsMarquee { padding: 22px 0; }
+}
+@media screen and (min-width: 768px) {
+  .techstack h2 { font-size: 72px; }
+  .toolsMarquee span { font-size: 30px; padding: 0 36px; }
+  .toolsMarquee { padding: 26px 0; }
+}
+@media screen and (min-width: 1400px) {
+  .techstack h2 { font-size: 90px; }
+  .toolsMarquee span { font-size: 36px; padding: 0 40px; }
+}

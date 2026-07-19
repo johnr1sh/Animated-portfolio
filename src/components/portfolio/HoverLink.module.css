@@ -1,0 +1,20 @@
+.hoverLink {
+  position: relative;
+  display: flex;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+.hoverIn {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+.hoverIn div {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.hoverLink:hover .hoverIn {
+  transform: translateY(-100%);
+  color: var(--accentColor);
+}

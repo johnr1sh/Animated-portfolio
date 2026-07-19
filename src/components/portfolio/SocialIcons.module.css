@@ -1,0 +1,92 @@
+.iconsSection {
+  position: fixed;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  bottom: 0;
+  z-index: 99;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+.socialIcons {
+  position: absolute;
+  left: -20px;
+  bottom: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+  padding: 10px;
+  pointer-events: auto;
+}
+.socialIcons a:hover {
+  color: var(--backgroundColor);
+}
+.socialIcons span {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+}
+.socialIcons a {
+  --siLeft: 50%;
+  --siTop: 50%;
+  position: absolute;
+  left: var(--siLeft, 50%);
+  top: var(--siTop, 50%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  font-size: 23px;
+  will-change: left, top;
+  transition: transform 0.3s ease-out;
+  color: var(--inkColor);
+}
+.resumeButton {
+  position: absolute;
+  z-index: 99;
+  display: none;
+  gap: 5px;
+  bottom: 40px;
+  right: 0;
+  width: auto;
+  text-wrap: nowrap;
+  letter-spacing: 4px;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: 600;
+  color: #5e5e5e;
+  cursor: none;
+  transition: 0.5s;
+  transform-origin: left bottom;
+  transform: translateX(100%) rotateZ(-90deg);
+  pointer-events: auto;
+}
+.resumeButton:hover {
+  color: #fff;
+}
+@media only screen and (min-width: 900px) {
+  .socialIcons {
+    display: flex;
+    gap: 20px;
+  }
+  .socialIcons a {
+    font-size: 28px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .resumeButton {
+    display: flex;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .resumeButton {
+    transform: none;
+    font-size: 20px;
+    line-height: 20px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .socialIcons a, .resumeButton { cursor: pointer; }
+}

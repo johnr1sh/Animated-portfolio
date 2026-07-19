@@ -1,0 +1,149 @@
+.loadingScreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: var(--vh);
+  background-color: #eae5ec;
+  z-index: 999999999;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.loadingGone {
+  opacity: 0;
+  pointer-events: none;
+}
+.loadingHeader {
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  position: fixed;
+  z-index: 9999999999;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  color: var(--backgroundColor);
+}
+.loaderTitle {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+.loadingMarquee {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  color: var(--backgroundColor);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.lmTrack {
+  display: inline-flex;
+  animation: lmScroll 16s linear infinite;
+}
+@keyframes lmScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.loadingMarquee span {
+  padding: 0 30px;
+  position: relative;
+  flex-shrink: 0;
+}
+.loadingMarquee span::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: var(--backgroundColor);
+  position: absolute;
+  top: 50%;
+  border-radius: 50px;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.loadingWrap {
+  --Lsize: 120px;
+  padding: 6px;
+  position: relative;
+  border-radius: 100px;
+  background-color: #000;
+  overflow: hidden;
+  box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 95vw;
+}
+.loadingButton {
+  padding: 16px 32px;
+  border-radius: 100px;
+  background-color: #000;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  z-index: 9;
+  color: #eae5ec;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.loadingContent {
+  position: relative;
+  background-color: #000;
+  width: 100%;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+.loadingContentIn {
+  position: relative;
+  width: var(--Lsize);
+  overflow: hidden;
+}
+.loadingContent span {
+  font-weight: 300;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  opacity: 0.7;
+}
+.loadingBox {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translate(100%, -50%);
+  width: 12px;
+  height: 22px;
+  background-color: white;
+  animation: blink 1s linear infinite;
+}
+@keyframes blink {
+  0%   { opacity: 0; }
+  25%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media only screen and (min-width: 500px) {
+  .loadingMarquee { font-size: 44px; }
+  .loadingWrap { --Lsize: 145px; }
+  .loadingButton { padding: 20px 50px; font-size: 18px; }
+}
+@media only screen and (min-width: 768px) {
+  .loadingMarquee { font-size: 60px; }
+}
+@media only screen and (min-width: 1400px) {
+  .loadingWrap { --Lsize: 210px; }
+  .loadingButton { padding: 30px 70px; font-size: 25px; }
+  .loadingMarquee { font-size: 80px; }
+}
