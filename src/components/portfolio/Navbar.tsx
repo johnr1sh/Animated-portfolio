@@ -91,14 +91,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <a
-          href="mailto:hugesmil3@gmail.com"
-          className={styles.mobileEmail}
-          onClick={() => setOpen(false)}
-          data-cursor="disable"
-        >
-          hugesmil3@gmail.com
-        </a>
       </div>
 
       {/* Glow orbs + top fade */}
