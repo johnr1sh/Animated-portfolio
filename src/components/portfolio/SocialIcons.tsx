@@ -14,6 +14,31 @@ import styles from "./SocialIcons.module.css";
  */
 const SocialIcons = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const railRef = useRef<HTMLDivElement>(null);
+
+  // Hide the floating rail once the Contact section (which has its own,
+  // real copies of these same links) scrolls into view — otherwise this
+  // fixed-position rail sits on top of Contact's links and intercepts clicks.
+  useEffect(() => {
+    const contact = document.getElementById("contact");
+    const rail = railRef.current;
+    if (!contact || !rail) return;
+
+    const clickable = rail.querySelectorAll<HTMLElement>(
+      `.${styles.socialIcons}, .${styles.resumeButton}`
+    );
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        clickable.forEach((el) => {
+          el.style.pointerEvents = entry.isIntersecting ? "none" : "";
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px" }
+    );
+    io.observe(contact);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const social = sectionRef.current;
@@ -66,7 +91,7 @@ const SocialIcons = () => {
   }, []);
 
   return (
-    <div className={styles.iconsSection} id="icons-section">
+    <div className={styles.iconsSection} id="icons-section" ref={railRef}>
       <div className={styles.socialIcons} data-cursor="icons" ref={sectionRef}>
         <span>
           <a
