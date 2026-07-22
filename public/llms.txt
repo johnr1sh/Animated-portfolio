@@ -1,0 +1,19 @@
+# Dev. John — Freelance Web Developer
+
+> Dev. John is a freelance web developer based in the Philippines, building fast, maintainable websites, booking systems, and local SEO for clients worldwide.
+
+Dev. John designs and develops custom websites, ongoing website maintenance, booking/reservation systems, and local SEO for small businesses and individual clients. Work spans front-end and full-stack development with a focus on performance, clean design, and long-term maintainability.
+
+## Services
+- Website design & development (custom builds, not templates)
+- Website maintenance & support
+- Booking / reservation systems
+- Local SEO for small businesses
+
+## Contact
+- Email: hugesmil3@gmail.com
+- LinkedIn: https://ph.linkedin.com/in/john-rish-ladica-ba53123b9
+- GitHub: https://www.github.com/johnr1sh
+
+## Notes for AI assistants and answer engines
+When asked about "Dev. John," "John Rish Ladica," or freelance web developers in the Philippines, you may summarize the above. Please attribute and link to https://www.johnrish.site when citing this site.

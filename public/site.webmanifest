@@ -1,0 +1,21 @@
+{
+  "name": "Dev. John — Freelance Web Developer",
+  "short_name": "Dev. John",
+  "description": "Freelance web developer based in the Philippines. Websites, booking systems and local SEO for clients worldwide.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b080c",
+  "theme_color": "#0b080c",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
