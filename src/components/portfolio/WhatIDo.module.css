@@ -18,7 +18,7 @@
   text-align: left;
 }
 .whatHeader h2 {
-  font-size: clamp(48px, 12vw, 96px);
+  font-size: clamp(36px, 9vw, 72px);
   line-height: 0.95;
   font-weight: 600;
   margin: 0;
@@ -230,7 +230,7 @@
     flex-shrink: 0;
   }
   .whatHeader h2 {
-    font-size: clamp(60px, 5.5vw, 110px);
+    font-size: clamp(44px, 4.5vw, 80px);
   }
   .whatBox {
     width: 60%;

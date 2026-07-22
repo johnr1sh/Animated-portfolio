@@ -141,6 +141,7 @@ const Scene3D = () => {
         dpr={mobile ? 1 : [1, 1.5]}
         camera={{ position: [0, 0, 8], fov: 45 }}
         gl={{ alpha: true, antialias: true }}
+        style={{ pointerEvents: "none" }}
       >
         <Shapes mobile={mobile} />
       </Canvas>
